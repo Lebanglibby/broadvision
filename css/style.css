@@ -871,3 +871,24 @@ input,textarea,select{font-family:inherit;font-size:inherit;color:inherit;}
 @media(max-width:360px){
   :root{--pad:1rem;}
 }
+
+/* ── Footer columns: Navigate & next column side-by-side on mobile ── */
+@media(max-width:768px){
+  .footer__grid{
+    grid-template-columns:1fr 1fr !important;
+    gap:var(--s6) var(--s8) !important;
+  }
+  /* Brand column spans full width */
+  .footer__grid > div:first-child{
+    grid-column:1 / -1;
+  }
+  /* Contact column spans full width at bottom */
+  .footer__grid > div:last-child{
+    grid-column:1 / -1;
+  }
+}
+@media(max-width:380px){
+  .footer__grid{grid-template-columns:1fr !important;}
+  .footer__grid > div:first-child,
+  .footer__grid > div:last-child{grid-column:auto;}
+}
