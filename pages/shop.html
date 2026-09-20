@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="BroadVision Eye Clinic Optical Shop — quality frames, sunglasses, contact lenses and accessories." />
+  <title>Optical Shop | BroadVision Eye Clinic</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+<nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav__inner">
+    <a href="../index.html" class="nav__brand">
+      <img src="../branding/logo.jpeg" alt="BroadVision Eye Clinic" class="nav__logo" />
+    </a>
+    <ul class="nav__links" role="list">
+      <li><a href="../index.html" class="nav__link">Home</a></li>
+      <li><a href="about.html"    class="nav__link">About</a></li>
+      <li><a href="services.html" class="nav__link">Services</a></li>
+      <li><a href="shop.html"     class="nav__link is-active">Optical Shop</a></li>
+      <li><a href="contact.html"  class="nav__link">Contact</a></li>
+    </ul>
+    <a href="booking.html" class="btn btn-orange nav__cta">Book Exam</a>
+    <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__drawer" id="drawer" role="dialog" aria-modal="true">
+  <div class="nav__drawer-backdrop" id="drawerBg"></div>
+  <div class="nav__drawer-panel">
+    <button class="nav__drawer-close" id="drawerClose">✕</button>
+    <img src="../branding/logo.jpeg" alt="BroadVision" class="nav__drawer-logo" />
+    <a href="../index.html" class="nav__drawer-link">Home</a>
+    <a href="about.html"    class="nav__drawer-link">About</a>
+    <a href="services.html" class="nav__drawer-link">Services</a>
+    <a href="shop.html"     class="nav__drawer-link is-active">Optical Shop</a>
+    <a href="contact.html"  class="nav__drawer-link">Contact</a>
+    <a href="booking.html"  class="btn btn-orange btn-w" style="margin-top:1rem;">Book Exam</a>
+  </div>
+</div>
+
+<div class="page-header">
+  <div class="page-header__inner">
+    <nav class="page-header__crumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a><span>/</span><span>Optical Shop</span>
+    </nav>
+    <h1>Optical Shop</h1>
+    <p>Quality frames, lenses and accessories curated for every style and lifestyle.</p>
+  </div>
+</div>
+
+<!-- SHOP -->
+<section class="section-sm bg-white" aria-label="Products">
+  <div class="wrap">
+
+    <!-- Search + Filter bar -->
+    <div style="display:flex;align-items:center;gap:var(--s4);flex-wrap:wrap;margin-bottom:var(--s6);padding:var(--s5) var(--s6);background:var(--bg);border-radius:var(--r-xl);border:1px solid var(--border);">
+      <div style="flex:1;min-width:200px;max-width:300px;position:relative;">
+        <span style="position:absolute;left:var(--s4);top:50%;transform:translateY(-50%);color:var(--text3);font-size:.9rem;pointer-events:none;">🔍</span>
+        <input
+          type="search"
+          id="shopSearch"
+          class="form-input"
+          placeholder="Search products..."
+          aria-label="Search products"
+          style="padding-left:2.5rem;background:var(--white);"
+        />
+      </div>
+      <div class="chips" id="chips" role="tablist" aria-label="Filter by category" style="flex:1;">
+        <button class="chip active" data-f="all"            role="tab" aria-selected="true">All</button>
+        <button class="chip"        data-f="frames"         role="tab" aria-selected="false">Frames</button>
+        <button class="chip"        data-f="sunglasses"     role="tab" aria-selected="false">Sunglasses</button>
+        <button class="chip"        data-f="contact-lenses" role="tab" aria-selected="false">Contact Lenses</button>
+        <button class="chip"        data-f="accessories"    role="tab" aria-selected="false">Accessories</button>
+      </div>
+      <div style="font-size:var(--t-xs);color:var(--text3);white-space:nowrap;flex-shrink:0;">
+        Showing <strong id="countNum" style="color:var(--navy);">8</strong> products
+      </div>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid-3" id="prodGrid" style="gap:var(--s6);">
+
+      <article class="prod-card" data-cat="frames" data-name="Titanium Air-Light Frames">
+        <div class="prod-img-wrap">
+          <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=600&q=80&fm=webp" alt="Titanium Air-Light Frames" class="prod-img" loading="lazy" />
+          <div class="prod-img-badge"><span class="tag tag-navy">Frames</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Frames</div>
+          <div class="prod-name">Titanium Air-Light Frames</div>
+          <p class="prod-desc">Ultra-lightweight titanium full-rim. Maximum durability and all-day comfort.</p>
+          <div class="prod-footer">
+            <span class="prod-price">P 1,890</span>
+            <button class="btn btn-navy btn-sm" onclick="enquire('Titanium Air-Light Frames')">Enquire</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="prod-card" data-cat="sunglasses" data-name="Polarized Horizon Sunglasses">
+        <div class="prod-img-wrap">
+          <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600&q=80&fm=webp" alt="Polarized Horizon Sunglasses" class="prod-img" loading="lazy" />
+          <div class="prod-img-badge"><span class="tag tag-cyan">Sunglasses</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Sunglasses</div>
+          <div class="prod-name">Polarized Horizon Sunglasses</div>
+          <p class="prod-desc">UV400 polarized lenses eliminating glare for outdoor activities.</p>
+          <div class="prod-footer">
+            <span class="prod-price">P 1,525</span>
+            <button class="btn btn-navy btn-sm" onclick="enquire('Polarized Horizon Sunglasses')">Enquire</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="prod-card" data-cat="contact-lenses" data-name="Moisture-Lock Daily Lenses">
+        <div class="prod-img-wrap">
+          <img src="../images/Moisture-Lock Daily Lenses.jpg" alt="Moisture-Lock Daily Lenses" class="prod-img" loading="lazy" />
+          <div class="prod-img-badge"><span class="tag tag-orange">Contact Lenses</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Contact Lenses</div>
+          <div class="prod-name">Moisture-Lock Daily Lenses</div>
+          <p class="prod-desc">High-hydration daily disposables for breathable all-day comfort. 30-pack.</p>
+          <div class="prod-footer">
+            <span class="prod-price">P 445</span>
+            <button class="btn btn-navy btn-sm" onclick="enquire('Moisture-Lock Daily Lenses')">Enquire</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="prod-card" data-cat="accessories" data-name="Multi-Purpose Contact Solution">
+        <div class="prod-img-wrap">
+          <img src="../images/Multi-Purpose Contact Solution.jpg" alt="Multi-Purpose Contact Solution" class="prod-img" loading="lazy" />
+          <div class="prod-img-badge"><span class="tag tag-green">Accessories</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Eye Care Accessories</div>
+          <div class="prod-name">Multi-Purpose Contact Solution</div>
+          <p class="prod-desc">Gentle sterilized solution for rinsing, cleaning and storing soft lenses. 350ml.</p>
+          <div class="prod-footer">
+            <span class="prod-price">P 175</span>
+            <button class="btn btn-navy btn-sm" onclick="enquire('Contact Solution 350ml')">Enquire</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="prod-card" data-cat="frames" data-name="Classic Acetate Frames">
+        <div class="prod-img-wrap">
+          <img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?w=600&q=80&fm=webp" alt="Classic Acetate Frames" class="prod-img" loading="lazy" />
+          <div class="prod-img-badge"><span class="tag tag-navy">Frames</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Frames</div>
+          <div class="prod-name">Classic Acetate Frames</div>
+          <p class="prod-desc">Timeless retro styling in eco-acetate with durable spring hinges.</p>
+          <div class="prod-footer">
+            <span class="prod-price">P 1,420</span>
+            <button class="btn btn-navy btn-sm" onclick="enquire('Classic Acetate Frames')">Enquire</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="prod-card" data-cat="frames" data-name="Blue-Light Defense Glasses">
+        <div class="prod-img-wrap">
+          <img src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=600&q=80&fm=webp" alt="Blue-Light Defense Glasses" class="prod-img" loading="lazy" />
+          <div class="prod-img-badge"><span class="tag tag-cyan">Non-Rx</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Computer Glasses</div>
+          <div class="prod-name">Blue-Light Defense Glasses</div>
+          <p class="prod-desc">Anti-glare protection engineered for screen-heavy daily use.</p>
+          <div class="prod-footer">
+            <span class="prod-price">P 1,000</span>
+            <button class="btn btn-navy btn-sm" onclick="enquire('Blue-Light Defense Glasses')">Enquire</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="prod-card" data-cat="sunglasses" data-name="Sport Wrap Sunglasses">
+        <div class="prod-img-wrap">
+          <img src="../images/Sport Wrap Sunglasses.jpg" alt="Sport Wrap Sunglasses" class="prod-img" loading="lazy" />
+          <div class="prod-img-badge"><span class="tag tag-cyan">Sunglasses</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Sunglasses</div>
+          <div class="prod-name">Sport Wrap Sunglasses</div>
+          <p class="prod-desc">Wrap-around impact-resistant lenses ideal for outdoor and active lifestyles.</p>
+          <div class="prod-footer">
+            <span class="prod-price">P 1,200</span>
+            <button class="btn btn-navy btn-sm" onclick="enquire('Sport Wrap Sunglasses')">Enquire</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="prod-card" data-cat="accessories" data-name="Premium Cleaning Kit">
+        <div class="prod-img-wrap">
+          <img src="../images/Premium Cleaning Kit.jpg" alt="Premium Eyeglass Cleaning Kit" class="prod-img" loading="lazy" />
+          <div class="prod-img-badge"><span class="tag tag-green">Accessories</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Eye Care Accessories</div>
+          <div class="prod-name">Premium Cleaning Kit</div>
+          <p class="prod-desc">Microfibre cloth, lens spray and protective case to keep your eyewear pristine.</p>
+          <div class="prod-footer">
+            <span class="prod-price">P 95</span>
+            <button class="btn btn-navy btn-sm" onclick="enquire('Premium Cleaning Kit')">Enquire</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Empty state -->
+    <div id="emptyState" style="display:none;text-align:center;padding:var(--s20) 0;">
+      <div style="font-size:3rem;margin-bottom:var(--s4);">🔍</div>
+      <h3 style="color:var(--text2);">No matching products</h3>
+      <p style="color:var(--text3);margin-top:var(--s2);">Try a different filter or visit us in-store for our full range.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- IN-STORE STRIP -->
+<section class="section-sm bg-soft">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s12);align-items:center;" class="reveal">
+      <div>
+        <div class="eyebrow" style="margin-bottom:var(--s4);">Visit In-Store</div>
+        <h2 style="font-size:var(--t-2xl);font-weight:800;margin-bottom:var(--s5);">Try Before You Buy</h2>
+        <p style="color:var(--text2);font-size:var(--t-md);line-height:1.82;margin-bottom:var(--s6);">
+          Come into our optical shop to try frames on, receive expert styling advice, and leave with eyewear that fits perfectly.
+        </p>
+        <div style="display:flex;flex-direction:column;gap:var(--s3);margin-bottom:var(--s7,1.75rem);">
+          <div style="display:flex;align-items:center;gap:var(--s3);font-size:var(--t-sm);">
+            <span style="width:22px;height:22px;border-radius:50%;background:var(--cyan-xlt);color:var(--cyan-dk);font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;">✓</span>
+            Expert frame styling guidance
+          </div>
+          <div style="display:flex;align-items:center;gap:var(--s3);font-size:var(--t-sm);">
+            <span style="width:22px;height:22px;border-radius:50%;background:var(--cyan-xlt);color:var(--cyan-dk);font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;">✓</span>
+            On-site lens cutting and fitting
+          </div>
+          <div style="display:flex;align-items:center;gap:var(--s3);font-size:var(--t-sm);">
+            <span style="width:22px;height:22px;border-radius:50%;background:var(--cyan-xlt);color:var(--cyan-dk);font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;">✓</span>
+            Frame adjustments and repairs
+          </div>
+        </div>
+        <a href="contact.html" class="btn btn-navy btn-lg">Find Our Store</a>
+      </div>
+      <div style="border-radius:var(--r-2xl);overflow:hidden;box-shadow:var(--sh-xl);">
+        <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=800&q=80&fm=webp" alt="BroadVision optical shop" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-sm bg-white">
+  <div class="wrap">
+    <div class="cta-strip reveal">
+      <h2>Need Help Choosing Eyewear?</h2>
+      <p>Book a frame consultation and our optical team will find your perfect fit.</p>
+      <div class="cta-strip__btns">
+        <a href="booking.html"    class="btn btn-orange btn-lg">Book Frame Consultation</a>
+        <a href="tel:+2672406540" class="btn btn-outline-white btn-lg">+267 240 6540</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <img src="../branding/logo.jpeg" alt="BroadVision Eye Clinic" class="footer__brand-logo" />
+        <div class="footer__name">BroadVision Eye Clinic</div>
+        <div class="footer__tag">Compassion &amp; Excellence</div>
+        <p class="footer__desc">Comprehensive eye health services for every member of your family.</p>
+        <div class="footer__socials">
+          <a href="#" class="footer__social" aria-label="Facebook">📘</a>
+          <a href="#" class="footer__social" aria-label="Instagram">📸</a>
+          <a href="#" class="footer__social" aria-label="WhatsApp">💬</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-title">Navigate</div>
+        <a href="../index.html" class="footer__link">Home</a>
+        <a href="about.html"    class="footer__link">About Us</a>
+        <a href="services.html" class="footer__link">Services</a>
+        <a href="shop.html"     class="footer__link">Optical Shop</a>
+        <a href="booking.html"  class="footer__link">Book Appointment</a>
+      </div>
+      <div>
+        <div class="footer__col-title">Products</div>
+        <a href="#" class="footer__link">Frames</a>
+        <a href="#" class="footer__link">Sunglasses</a>
+        <a href="#" class="footer__link">Contact Lenses</a>
+        <a href="#" class="footer__link">Accessories</a>
+      </div>
+      <div>
+        <div class="footer__col-title">Contact</div>
+        <div class="footer__citem"><span class="footer__cicon">📍</span><div class="footer__ctext">Sunshine Plaza, Plot 32397, Shop 14, Francistown, Botswana</div></div>
+        <div class="footer__citem"><span class="footer__cicon">📞</span><div class="footer__ctext">+267 240 6540</div></div>
+        <div class="footer__citem"><span class="footer__cicon">🕐</span><div class="footer__ctext">Mon to Fri 08:00 to 17:30<br>Sat 09:00 to 14:00</div></div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__copy">© 2026 BroadVision Eye Clinic. All rights reserved.</div>
+      <div class="footer__legal"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="alert" aria-live="polite">
+  <span>✓</span><span id="toastMsg">Enquiry noted!</span>
+</div>
+
+<script src="../js/main.js"></script>
+<script>
+  function enquire(name) {
+    document.getElementById('toastMsg').textContent = name + ' enquiry noted!';
+    const t = document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3000);
+  }
+</script>
+</body>
+</html>

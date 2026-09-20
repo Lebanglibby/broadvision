@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact BroadVision Eye Clinic. Call +267 240 6540 or send us a message." />
+  <title>Contact Us | BroadVision Eye Clinic</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+<nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav__inner">
+    <a href="../index.html" class="nav__brand">
+      <img src="../branding/logo.jpeg" alt="BroadVision Eye Clinic" class="nav__logo" />
+    </a>
+    <ul class="nav__links" role="list">
+      <li><a href="../index.html" class="nav__link">Home</a></li>
+      <li><a href="about.html"    class="nav__link">About</a></li>
+      <li><a href="services.html" class="nav__link">Services</a></li>
+      <li><a href="shop.html"     class="nav__link">Optical Shop</a></li>
+      <li><a href="contact.html"  class="nav__link is-active">Contact</a></li>
+    </ul>
+    <a href="booking.html" class="btn btn-orange nav__cta">Book Exam</a>
+    <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__drawer" id="drawer" role="dialog" aria-modal="true">
+  <div class="nav__drawer-backdrop" id="drawerBg"></div>
+  <div class="nav__drawer-panel">
+    <button class="nav__drawer-close" id="drawerClose">✕</button>
+    <img src="../branding/logo.jpeg" alt="BroadVision" class="nav__drawer-logo" />
+    <a href="../index.html" class="nav__drawer-link">Home</a>
+    <a href="about.html"    class="nav__drawer-link">About</a>
+    <a href="services.html" class="nav__drawer-link">Services</a>
+    <a href="shop.html"     class="nav__drawer-link">Optical Shop</a>
+    <a href="contact.html"  class="nav__drawer-link is-active">Contact</a>
+    <a href="booking.html"  class="btn btn-orange btn-w" style="margin-top:1rem;">Book Exam</a>
+  </div>
+</div>
+
+<div class="page-header">
+  <div class="page-header__inner">
+    <nav class="page-header__crumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a><span>/</span><span>Contact</span>
+    </nav>
+    <h1>Get in Touch</h1>
+    <p>We are here to help. Reach us by phone, message or visit us in-store.</p>
+  </div>
+</div>
+
+<!-- CONTACT GRID -->
+<section class="section-sm bg-soft" aria-label="Contact information">
+  <div class="wrap">
+    <div class="contact-grid">
+
+      <!-- Info panel -->
+      <div class="contact-info reveal">
+        <h3>Clinic Information</h3>
+        <p>Walk-ins are welcome for browsing and adjustments. For exams, booking ahead is recommended.</p>
+
+        <div class="c-row">
+          <div class="c-icon">📍</div>
+          <div>
+            <div class="c-label">Address</div>
+            <div class="c-val">Sunshine Plaza<br>Plot 32397, Shop Number 14<br>Francistown, Botswana</div>
+          </div>
+        </div>
+        <div class="c-row">
+          <div class="c-icon">📞</div>
+          <div>
+            <div class="c-label">Phone</div>
+            <div class="c-val"><a href="tel:+2672406540" style="color:inherit;">+267 240 6540</a></div>
+          </div>
+        </div>
+        <div class="c-row">
+          <div class="c-icon">💬</div>
+          <div>
+            <div class="c-label">WhatsApp</div>
+            <div class="c-val"><a href="https://wa.me/2672406540" target="_blank" rel="noopener" style="color:var(--cyan-lt);">Chat on WhatsApp →</a></div>
+          </div>
+        </div>
+
+        <div style="margin-top:var(--s2);">
+          <div class="c-label" style="margin-bottom:var(--s4);">Clinic Hours</div>
+          <table class="hours-tbl">
+            <tr><td>Monday to Friday</td><td>08:00 to 17:30</td></tr>
+            <tr><td>Saturday</td><td>09:00 to 14:00</td></tr>
+            <tr><td>Sunday and Public Holidays</td><td>Closed</td></tr>
+          </table>
+        </div>
+
+        <div style="margin-top:var(--s6);display:flex;gap:var(--s3);">
+          <a href="#" class="footer__social" style="background:rgba(255,255,255,.1);" aria-label="Facebook">📘</a>
+          <a href="#" class="footer__social" style="background:rgba(255,255,255,.1);" aria-label="Instagram">📸</a>
+          <a href="https://wa.me/2672406540" class="footer__social" style="background:rgba(255,255,255,.1);" aria-label="WhatsApp" target="_blank" rel="noopener">💬</a>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="contact-form reveal rd-2">
+        <h3>Send a Message</h3>
+        <p>Have a question? Fill in the form and we will get back to you as soon as possible.</p>
+
+        <form id="cForm" novalidate>
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="cName">Full Name <span class="form-req">*</span></label>
+              <input class="form-input" id="cName" type="text" placeholder="Your name" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cPhone">Phone</label>
+              <input class="form-input" id="cPhone" type="tel" placeholder="+267 7X XXX XXXX" autocomplete="tel" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cEmail">Email <span class="form-req">*</span></label>
+            <input class="form-input" id="cEmail" type="email" placeholder="you@example.com" required autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cSubject">Subject</label>
+            <select class="form-input form-select" id="cSubject">
+              <option value="" disabled selected>Select a topic...</option>
+              <option>General Enquiry</option>
+              <option>Book an Appointment</option>
+              <option>Products and Eyewear</option>
+              <option>Prescription Query</option>
+              <option>Contact Lenses</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cMsg">Message <span class="form-req">*</span></label>
+            <textarea class="form-input form-textarea" id="cMsg" placeholder="How can we help you?" required rows="5"></textarea>
+          </div>
+          <button type="submit" class="btn btn-orange btn-lg btn-w" id="cBtn">Send Message</button>
+
+          <div id="cSuccess" style="display:none;margin-top:var(--s5);background:#f0fdf4;border:1px solid #bbf7d0;border-radius:var(--r-lg);padding:var(--s5);text-align:center;">
+            <div style="font-size:1.5rem;margin-bottom:var(--s2);">✅</div>
+            <div style="font-weight:700;color:var(--success);font-size:var(--t-sm);">Message sent successfully!</div>
+            <div style="color:var(--success);font-size:var(--t-xs);margin-top:var(--s1);">We will be in touch shortly.</div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="section-sm bg-white" aria-label="Location">
+  <div class="wrap">
+    <div class="sec-hdr center reveal">
+      <div class="eyebrow" style="justify-content:center;">Find Us</div>
+      <h2>Our Location</h2>
+      <p>Sunshine Plaza, Plot 32397, Shop Number 14, Francistown, Botswana.</p>
+    </div>
+
+    <div class="map-wrap reveal">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59100.25!2d27.4833!3d-21.1700!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ebc6afc5f3fc95b%3A0x5b8b9a3c19b4e5d0!2sFrancistown%2C%20Botswana!5e0!3m2!1sen!2sbw!4v1695000000000!5m2!1sen!2sbw"
+        title="BroadVision Eye Clinic location"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        aria-label="Map showing BroadVision Eye Clinic location"
+      ></iframe>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s5);margin-top:var(--s8);" class="reveal">
+      <div style="text-align:center;padding:var(--s5) var(--s4);background:var(--bg);border-radius:var(--r-xl);border:1px solid var(--border);">
+        <div style="font-size:1.75rem;margin-bottom:var(--s3);">🚗</div>
+        <div style="font-weight:700;font-size:var(--t-sm);margin-bottom:var(--s2);">By Car</div>
+        <p style="font-size:var(--t-xs);color:var(--text2);">Parking available at Sunshine Plaza. Enter via the main plaza entrance.</p>
+      </div>
+      <div style="text-align:center;padding:var(--s5) var(--s4);background:var(--bg);border-radius:var(--r-xl);border:1px solid var(--border);">
+        <div style="font-size:1.75rem;margin-bottom:var(--s3);">🚌</div>
+        <div style="font-weight:700;font-size:var(--t-sm);margin-bottom:var(--s2);">Public Transport</div>
+        <p style="font-size:var(--t-xs);color:var(--text2);">Several combis and buses stop near Sunshine Plaza on the main route.</p>
+      </div>
+      <div style="text-align:center;padding:var(--s5) var(--s4);background:var(--bg);border-radius:var(--r-xl);border:1px solid var(--border);">
+        <div style="font-size:1.75rem;margin-bottom:var(--s3);">🏪</div>
+        <div style="font-weight:700;font-size:var(--t-sm);margin-bottom:var(--s2);">In the Plaza</div>
+        <p style="font-size:var(--t-xs);color:var(--text2);">Find us at Shop Number 14 inside Sunshine Plaza, Plot 32397.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-sm bg-soft">
+  <div class="wrap">
+    <div class="cta-strip reveal">
+      <h2>Ready to Book Your Appointment?</h2>
+      <p>Don't wait on your vision. Schedule your visit today.</p>
+      <div class="cta-strip__btns">
+        <a href="booking.html"    class="btn btn-orange btn-lg">Book an Appointment</a>
+        <a href="tel:+2672406540" class="btn btn-outline-white btn-lg">+267 240 6540</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <img src="../branding/logo.jpeg" alt="BroadVision Eye Clinic" class="footer__brand-logo" />
+        <div class="footer__name">BroadVision Eye Clinic</div>
+        <div class="footer__tag">Compassion &amp; Excellence</div>
+        <p class="footer__desc">Comprehensive eye health services for every member of your family.</p>
+        <div class="footer__socials">
+          <a href="#" class="footer__social" aria-label="Facebook">📘</a>
+          <a href="#" class="footer__social" aria-label="Instagram">📸</a>
+          <a href="#" class="footer__social" aria-label="WhatsApp">💬</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-title">Navigate</div>
+        <a href="../index.html" class="footer__link">Home</a>
+        <a href="about.html"    class="footer__link">About Us</a>
+        <a href="services.html" class="footer__link">Services</a>
+        <a href="shop.html"     class="footer__link">Optical Shop</a>
+        <a href="booking.html"  class="footer__link">Book Appointment</a>
+      </div>
+      <div>
+        <div class="footer__col-title">Services</div>
+        <a href="services.html" class="footer__link">Eye Examinations</a>
+        <a href="services.html" class="footer__link">Pediatric Optometry</a>
+        <a href="services.html" class="footer__link">Contact Lens Fitting</a>
+        <a href="services.html" class="footer__link">Prescription Eyewear</a>
+        <a href="services.html" class="footer__link">Dry Eye Therapy</a>
+      </div>
+      <div>
+        <div class="footer__col-title">Contact</div>
+        <div class="footer__citem"><span class="footer__cicon">📍</span><div class="footer__ctext">Sunshine Plaza, Plot 32397, Shop 14, Francistown, Botswana</div></div>
+        <div class="footer__citem"><span class="footer__cicon">📞</span><div class="footer__ctext">+267 240 6540</div></div>
+        <div class="footer__citem"><span class="footer__cicon">🕐</span><div class="footer__ctext">Mon to Fri 08:00 to 17:30<br>Sat 09:00 to 14:00 · Sun Closed</div></div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__copy">© 2026 BroadVision Eye Clinic. All rights reserved.</div>
+      <div class="footer__legal"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="alert" aria-live="polite">
+  <span>✓</span><span>Message sent! We will be in touch soon.</span>
+</div>
+
+<script src="../js/main.js"></script>
+<script>
+  document.getElementById('cForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('cName').value.trim();
+    const email = document.getElementById('cEmail').value.trim();
+    const msg   = document.getElementById('cMsg').value.trim();
+    [['cName',name],['cEmail',email],['cMsg',msg]].forEach(([id,v])=>{
+      document.getElementById(id).classList.toggle('error', !v);
+    });
+    if (!name || !email || !msg) return;
+    const btn = document.getElementById('cBtn');
+    btn.disabled = true; btn.textContent = 'Sending...';
+    setTimeout(function() {
+      document.getElementById('cSuccess').style.display = 'block';
+      btn.style.display = 'none';
+      const t = document.getElementById('toast');
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 4000);
+    }, 1000);
+  });
+</script>
+</body>
+</html>

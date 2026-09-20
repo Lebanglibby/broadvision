@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Book an appointment at BroadVision Eye Clinic." />
+  <title>Book Appointment | BroadVision Eye Clinic</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .bk-layout{display:grid;grid-template-columns:1fr 310px;gap:var(--s8);align-items:start;}
+    .bk-panel{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r-2xl);padding:var(--s8);box-shadow:var(--sh-sm);}
+    .bk-step{display:none;}
+    .bk-step.active{display:block;}
+    .bk-step-title{font-size:var(--t-xl);font-weight:800;color:var(--text);margin-bottom:var(--s2);}
+    .bk-step-sub{font-size:var(--t-sm);color:var(--text3);margin-bottom:var(--s6);}
+    .bk-nav{display:flex;align-items:center;justify-content:space-between;margin-top:var(--s8);padding-top:var(--s6);border-top:1px solid var(--border);}
+    .doc-opt{display:flex;align-items:center;gap:var(--s4);padding:var(--s4) var(--s5);border-radius:var(--r-lg);border:2px solid var(--border);cursor:pointer;margin-bottom:var(--s3);transition:all var(--fast);background:var(--white);width:100%;text-align:left;}
+    .doc-opt:hover   {border-color:var(--cyan);background:var(--cyan-xlt);}
+    .doc-opt.selected{border-color:var(--cyan);background:var(--cyan-xlt);box-shadow:0 0 0 3px rgba(0,180,216,.12);}
+    .dt-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s5);}
+    .bk-success{text-align:center;padding:var(--s12) var(--s8);}
+    .bk-success__icon{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#15803d,#22c55e);display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto var(--s5);box-shadow:0 8px 24px rgba(22,163,74,.28);}
+    .bk-ref{display:inline-block;background:var(--bg2);border:2px dashed var(--border2);border-radius:var(--r-lg);padding:var(--s4) var(--s8);font-size:var(--t-lg);font-weight:800;color:var(--navy);letter-spacing:.12em;font-family:var(--serif);margin-bottom:var(--s5);}
+    @media(max-width:860px){.bk-layout{grid-template-columns:1fr;}.bk-summary{order:-1;position:static!important;}.dt-grid{grid-template-columns:1fr;}}
+    @media(max-width:480px){.bk-panel{padding:var(--s5);}}
+  </style>
+</head>
+<body>
+
+<nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav__inner">
+    <a href="../index.html" class="nav__brand">
+      <img src="../branding/logo.jpeg" alt="BroadVision Eye Clinic" class="nav__logo" />
+    </a>
+    <ul class="nav__links" role="list">
+      <li><a href="../index.html" class="nav__link">Home</a></li>
+      <li><a href="about.html"    class="nav__link">About</a></li>
+      <li><a href="services.html" class="nav__link">Services</a></li>
+      <li><a href="shop.html"     class="nav__link">Optical Shop</a></li>
+      <li><a href="contact.html"  class="nav__link">Contact</a></li>
+    </ul>
+    <a href="booking.html" class="btn btn-orange nav__cta">Book Exam</a>
+    <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__drawer" id="drawer" role="dialog" aria-modal="true">
+  <div class="nav__drawer-backdrop" id="drawerBg"></div>
+  <div class="nav__drawer-panel">
+    <button class="nav__drawer-close" id="drawerClose">✕</button>
+    <img src="../branding/logo.jpeg" alt="BroadVision" class="nav__drawer-logo" />
+    <a href="../index.html" class="nav__drawer-link">Home</a>
+    <a href="about.html"    class="nav__drawer-link">About</a>
+    <a href="services.html" class="nav__drawer-link">Services</a>
+    <a href="shop.html"     class="nav__drawer-link">Optical Shop</a>
+    <a href="contact.html"  class="nav__drawer-link">Contact</a>
+    <a href="booking.html"  class="btn btn-orange btn-w" style="margin-top:1rem;">Book Exam</a>
+  </div>
+</div>
+
+<div class="page-header">
+  <div class="page-header__inner">
+    <nav class="page-header__crumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a><span>/</span><span>Book Appointment</span>
+    </nav>
+    <h1>Book Your Visit</h1>
+    <p>4 steps: choose service, practitioner, date and time, then confirm.</p>
+  </div>
+</div>
+
+<section class="section-sm bg-soft" aria-label="Appointment booking">
+  <div class="wrap">
+    <div class="bk-layout">
+
+      <!-- FORM -->
+      <div>
+        <!-- Stepper -->
+        <div class="steps" role="list" aria-label="Booking progress" style="margin-bottom:var(--s6);">
+          <div class="step active" id="si1" role="listitem"><div class="step-num">1</div><div class="step-lbl">Service</div></div>
+          <div class="step"        id="si2" role="listitem"><div class="step-num">2</div><div class="step-lbl">Practitioner</div></div>
+          <div class="step"        id="si3" role="listitem"><div class="step-num">3</div><div class="step-lbl">Date &amp; Time</div></div>
+          <div class="step"        id="si4" role="listitem"><div class="step-num">4</div><div class="step-lbl">Your Details</div></div>
+        </div>
+
+        <div class="bk-panel" id="bkPanel">
+
+          <!-- STEP 1 -->
+          <div class="bk-step active" id="s1">
+            <div class="bk-step-title">Select a Service</div>
+            <div class="bk-step-sub">Choose the type of appointment you need.</div>
+            <div role="radiogroup" aria-label="Service selection">
+              <button class="opt-card" data-svc="Comprehensive Eye Exam" data-dur="45 min" onclick="pick(this,'svc')" role="radio" aria-checked="false">
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--s4);width:100%;">
+                  <div><div class="opt-name">🔬 Comprehensive Eye Exam</div><div class="opt-meta">Full ocular health assessment for adults and children</div></div>
+                  <span class="tag tag-navy" style="flex-shrink:0;">45 min</span>
+                </div>
+              </button>
+              <button class="opt-card" data-svc="Contact Lens Fitting" data-dur="30 min" onclick="pick(this,'svc')" role="radio" aria-checked="false">
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--s4);width:100%;">
+                  <div><div class="opt-name">🔵 Contact Lens Fitting</div><div class="opt-meta">New and existing wearers welcome</div></div>
+                  <span class="tag tag-cyan" style="flex-shrink:0;">30 min</span>
+                </div>
+              </button>
+              <button class="opt-card" data-svc="Pediatric Eye Exam" data-dur="40 min" onclick="pick(this,'svc')" role="radio" aria-checked="false">
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--s4);width:100%;">
+                  <div><div class="opt-name">🧒 Pediatric Eye Exam</div><div class="opt-meta">Children up to 16 years</div></div>
+                  <span class="tag tag-orange" style="flex-shrink:0;">40 min</span>
+                </div>
+              </button>
+              <button class="opt-card" data-svc="Dry Eye Consultation" data-dur="30 min" onclick="pick(this,'svc')" role="radio" aria-checked="false">
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--s4);width:100%;">
+                  <div><div class="opt-name">💧 Dry Eye Consultation</div><div class="opt-meta">Comfort and relief assessment</div></div>
+                  <span class="tag tag-cyan" style="flex-shrink:0;">30 min</span>
+                </div>
+              </button>
+              <button class="opt-card" data-svc="Frame and Lens Consultation" data-dur="30 min" onclick="pick(this,'svc')" role="radio" aria-checked="false">
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--s4);width:100%;">
+                  <div><div class="opt-name">👓 Frame and Lens Consultation</div><div class="opt-meta">Style and fitting guidance</div></div>
+                  <span class="tag tag-navy" style="flex-shrink:0;">30 min</span>
+                </div>
+              </button>
+            </div>
+            <div class="bk-nav"><span></span><button class="btn btn-orange btn-lg" id="n1" disabled onclick="go(2)">Continue →</button></div>
+          </div>
+
+          <!-- STEP 2 -->
+          <div class="bk-step" id="s2">
+            <div class="bk-step-title">Choose a Practitioner</div>
+            <div class="bk-step-sub">Select your preferred optometrist.</div>
+            <div role="radiogroup" aria-label="Practitioner selection">
+              <button class="doc-opt" data-doc="Lead Optometrist" onclick="pick(this,'doc')" role="radio" aria-checked="false">
+                <div style="width:50px;height:50px;border-radius:50%;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;">👁️</div>
+                <div style="flex:1;">
+                  <div style="font-weight:700;font-size:var(--t-sm);color:var(--text);">Lead Optometrist</div>
+                  <div style="font-size:var(--t-xs);color:var(--text3);">Internationally trained · Full scope of practice</div>
+                </div>
+                <span class="tag tag-navy" style="flex-shrink:0;">Lead</span>
+              </button>
+              <button class="doc-opt" data-doc="First Available" onclick="pick(this,'doc')" role="radio" aria-checked="false">
+                <div style="width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--navy));display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;">⚡</div>
+                <div style="flex:1;">
+                  <div style="font-weight:700;font-size:var(--t-sm);color:var(--text);">First Available</div>
+                  <div style="font-size:var(--t-xs);color:var(--text3);">Soonest available appointment slot</div>
+                </div>
+              </button>
+            </div>
+            <div class="bk-nav">
+              <button class="btn btn-ghost" onclick="go(1)">← Back</button>
+              <button class="btn btn-orange btn-lg" id="n2" disabled onclick="go(3)">Continue →</button>
+            </div>
+          </div>
+
+          <!-- STEP 3 -->
+          <div class="bk-step" id="s3">
+            <div class="bk-step-title">Date and Time</div>
+            <div class="bk-step-sub">Pick a date then select your preferred time slot.</div>
+            <div class="dt-grid">
+              <div class="mcal" id="mcal">
+                <div class="mcal-head">
+                  <button class="mcal-nav" id="cPrev" aria-label="Previous month">‹</button>
+                  <div class="mcal-title" id="cTitle"></div>
+                  <button class="mcal-nav" id="cNext" aria-label="Next month">›</button>
+                </div>
+                <div class="mcal-grid" id="cGrid"></div>
+              </div>
+              <div>
+                <div style="font-size:var(--t-sm);font-weight:600;color:var(--text);margin-bottom:var(--s4);" id="tLabel">Available Times</div>
+                <div class="time-grid">
+                  <button class="time-btn" data-t="09:00 AM" onclick="pickTime(this)">09:00 AM</button>
+                  <button class="time-btn" data-t="10:30 AM" onclick="pickTime(this)">10:30 AM</button>
+                  <button class="time-btn" data-t="02:00 PM" onclick="pickTime(this)">02:00 PM</button>
+                  <button class="time-btn" data-t="03:30 PM" onclick="pickTime(this)">03:30 PM</button>
+                  <button class="time-btn" data-t="04:30 PM" onclick="pickTime(this)">04:30 PM</button>
+                </div>
+              </div>
+            </div>
+            <div class="bk-nav">
+              <button class="btn btn-ghost" onclick="go(2)">← Back</button>
+              <button class="btn btn-orange btn-lg" id="n3" disabled onclick="go(4)">Continue →</button>
+            </div>
+          </div>
+
+          <!-- STEP 4 -->
+          <div class="bk-step" id="s4">
+            <div class="bk-step-title">Your Details</div>
+            <div class="bk-step-sub">Almost there, just a few quick details.</div>
+            <form id="pForm" novalidate>
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="fName">Full Name <span class="form-req">*</span></label>
+                  <input class="form-input" id="fName" type="text" placeholder="Your full name" required autocomplete="name" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="fPhone">Phone <span class="form-req">*</span></label>
+                  <input class="form-input" id="fPhone" type="tel" placeholder="+267 7X XXX XXXX" required autocomplete="tel" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="fEmail">Email Address</label>
+                <input class="form-input" id="fEmail" type="email" placeholder="you@example.com" autocomplete="email" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="fType">Patient Type <span class="form-req">*</span></label>
+                <select class="form-input form-select" id="fType" required>
+                  <option value="" disabled selected>Select...</option>
+                  <option value="New Patient">New Patient</option>
+                  <option value="Returning Patient">Returning Patient</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="fNotes">Additional Notes</label>
+                <textarea class="form-input form-textarea" id="fNotes" placeholder="Any concerns or questions for the optometrist..." rows="3"></textarea>
+              </div>
+            </form>
+            <div class="bk-nav">
+              <button class="btn btn-ghost" onclick="go(3)">← Back</button>
+              <button class="btn btn-orange btn-lg" onclick="submitBk()">Confirm Appointment ✓</button>
+            </div>
+          </div>
+
+          <!-- SUCCESS -->
+          <div class="bk-step" id="s-ok">
+            <div class="bk-success">
+              <div class="bk-success__icon">✓</div>
+              <h2 style="font-size:var(--t-2xl);margin-bottom:var(--s3);">Booking Confirmed!</h2>
+              <p style="color:var(--text2);font-size:var(--t-md);margin-bottom:var(--s5);">Thank you. We look forward to seeing you at BroadVision Eye Clinic.</p>
+              <div class="bk-ref" id="refCode">BV-00000</div>
+              <p style="font-size:var(--t-sm);color:var(--text3);margin-bottom:var(--s8);">Save this reference number. We will contact you to confirm your appointment.</p>
+              <div style="display:flex;gap:var(--s4);justify-content:center;flex-wrap:wrap;">
+                <a href="../index.html" class="btn btn-ghost btn-lg">Back to Home</a>
+                <a href="services.html" class="btn btn-navy btn-lg">Our Services</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="bk-summary" id="bkSummary">
+        <h4>Your Booking</h4>
+        <div class="bk-row"><span class="bk-lbl">Service</span>     <span class="bk-val bk-empty" id="ss-svc">Not selected</span></div>
+        <div class="bk-row"><span class="bk-lbl">Duration</span>    <span class="bk-val bk-empty" id="ss-dur">—</span></div>
+        <div class="bk-row"><span class="bk-lbl">Practitioner</span><span class="bk-val bk-empty" id="ss-doc">Not selected</span></div>
+        <div class="bk-row"><span class="bk-lbl">Date</span>        <span class="bk-val bk-empty" id="ss-date">Not selected</span></div>
+        <div class="bk-row"><span class="bk-lbl">Time</span>        <span class="bk-val bk-empty" id="ss-time">Not selected</span></div>
+
+        <div style="margin-top:var(--s6);padding-top:var(--s5);border-top:1px solid var(--border);">
+          <div style="font-size:var(--t-xs);font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:var(--s4);">Clinic Info</div>
+          <div style="font-size:var(--t-sm);color:var(--text2);line-height:1.75;">
+            📍 Sunshine Plaza, Shop 14<br>Francistown, Botswana<br><br>
+            📞 <a href="tel:+2672406540" style="color:var(--navy);font-weight:600;">+267 240 6540</a>
+          </div>
+        </div>
+
+        <div style="margin-top:var(--s5);padding-top:var(--s5);border-top:1px solid var(--border);">
+          <div style="font-size:var(--t-xs);font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:var(--s3);">What to Bring</div>
+          <ul style="display:flex;flex-direction:column;gap:var(--s2);">
+            <li style="font-size:var(--t-xs);color:var(--text2);">👓 Current glasses or prescription</li>
+            <li style="font-size:var(--t-xs);color:var(--text2);">🔵 Contact lens details if applicable</li>
+            <li style="font-size:var(--t-xs);color:var(--text2);">💊 List of current medications</li>
+            <li style="font-size:var(--t-xs);color:var(--text2);">🪪 Valid ID document</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <img src="../branding/logo.jpeg" alt="BroadVision Eye Clinic" class="footer__brand-logo" />
+        <div class="footer__name">BroadVision Eye Clinic</div>
+        <div class="footer__tag">Compassion &amp; Excellence</div>
+        <p class="footer__desc">Comprehensive eye health services for every member of your family.</p>
+        <div class="footer__socials">
+          <a href="#" class="footer__social" aria-label="Facebook">📘</a>
+          <a href="#" class="footer__social" aria-label="Instagram">📸</a>
+          <a href="#" class="footer__social" aria-label="WhatsApp">💬</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-title">Navigate</div>
+        <a href="../index.html" class="footer__link">Home</a>
+        <a href="about.html"    class="footer__link">About Us</a>
+        <a href="services.html" class="footer__link">Services</a>
+        <a href="shop.html"     class="footer__link">Optical Shop</a>
+      </div>
+      <div>
+        <div class="footer__col-title">Services</div>
+        <a href="services.html" class="footer__link">Eye Examinations</a>
+        <a href="services.html" class="footer__link">Contact Lens Fitting</a>
+        <a href="services.html" class="footer__link">Pediatric Optometry</a>
+        <a href="services.html" class="footer__link">Dry Eye Therapy</a>
+      </div>
+      <div>
+        <div class="footer__col-title">Contact</div>
+        <div class="footer__citem"><span class="footer__cicon">📍</span><div class="footer__ctext">Sunshine Plaza, Plot 32397, Shop 14, Francistown, Botswana</div></div>
+        <div class="footer__citem"><span class="footer__cicon">📞</span><div class="footer__ctext">+267 240 6540</div></div>
+        <div class="footer__citem"><span class="footer__cicon">🕐</span><div class="footer__ctext">Mon to Fri 08:00 to 17:30<br>Sat 09:00 to 14:00</div></div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__copy">© 2026 BroadVision Eye Clinic. All rights reserved.</div>
+      <div class="footer__legal"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+const B={svc:'',dur:'',doc:'',date:'',time:''};
+
+function pick(el,key){
+  const g=el.closest('[role="radiogroup"]');
+  g.querySelectorAll('[role="radio"]').forEach(b=>{b.classList.remove('selected');b.setAttribute('aria-checked','false');});
+  el.classList.add('selected');el.setAttribute('aria-checked','true');
+  if(key==='svc'){
+    B.svc=el.dataset.svc;B.dur=el.dataset.dur;
+    upd('ss-svc',B.svc);upd('ss-dur',B.dur);
+    document.getElementById('n1').disabled=false;
+  }
+  if(key==='doc'){
+    B.doc=el.dataset.doc;upd('ss-doc',B.doc);
+    document.getElementById('n2').disabled=false;
+  }
+}
+
+function pickTime(el){
+  document.querySelectorAll('.time-btn').forEach(b=>b.classList.remove('selected'));
+  el.classList.add('selected');B.time=el.dataset.t;upd('ss-time',B.time);
+  if(B.date)document.getElementById('n3').disabled=false;
+}
+
+function upd(id,val){
+  const el=document.getElementById(id);
+  el.textContent=val;el.classList.remove('bk-empty');
+}
+
+function go(n){
+  if(n===4){if(!B.date){alert('Please select a date.');return;}if(!B.time){alert('Please select a time slot.');return;}}
+  document.querySelectorAll('.bk-step').forEach(s=>s.classList.remove('active'));
+  document.getElementById('s'+n).classList.add('active');
+  for(let i=1;i<=4;i++){
+    const si=document.getElementById('si'+i);if(!si)continue;
+    si.classList.remove('active','done');
+    if(i<n)si.classList.add('done');
+    if(i===n)si.classList.add('active');
+  }
+  document.getElementById('bkPanel').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function submitBk(){
+  const name=document.getElementById('fName').value.trim();
+  const phone=document.getElementById('fPhone').value.trim();
+  const type=document.getElementById('fType').value;
+  if(!name){document.getElementById('fName').classList.add('error');document.getElementById('fName').focus();return;}
+  if(!phone){document.getElementById('fPhone').classList.add('error');document.getElementById('fPhone').focus();return;}
+  if(!type){document.getElementById('fType').classList.add('error');return;}
+  const ref='BV-'+Math.floor(10000+Math.random()*89999);
+  document.getElementById('refCode').textContent=ref;
+  document.querySelectorAll('.bk-step').forEach(s=>s.classList.remove('active'));
+  document.getElementById('s-ok').classList.add('active');
+  document.querySelectorAll('.step').forEach(s=>{s.classList.remove('active');s.classList.add('done');});
+}
+
+(function(){
+  const MO=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const TODAY=new Date(2026,8,19);
+  let cur=new Date(TODAY.getFullYear(),TODAY.getMonth(),1);
+  function render(){
+    document.getElementById('cTitle').textContent=MO[cur.getMonth()]+' '+cur.getFullYear();
+    const g=document.getElementById('cGrid');g.innerHTML='';
+    ['Su','Mo','Tu','We','Th','Fr','Sa'].forEach(d=>{const e=document.createElement('div');e.className='mcal-dow';e.textContent=d;g.appendChild(e);});
+    const first=new Date(cur.getFullYear(),cur.getMonth(),1).getDay();
+    const days=new Date(cur.getFullYear(),cur.getMonth()+1,0).getDate();
+    const prev=new Date(cur.getFullYear(),cur.getMonth(),0).getDate();
+    for(let i=0;i<first;i++){const b=document.createElement('button');b.className='mcal-day off';b.textContent=prev-first+1+i;b.disabled=true;g.appendChild(b);}
+    for(let d=1;d<=days;d++){
+      const b=document.createElement('button');b.className='mcal-day';b.textContent=d;
+      const dt=new Date(cur.getFullYear(),cur.getMonth(),d);
+      if(dt.getDay()===0||dt<new Date(TODAY.getFullYear(),TODAY.getMonth(),TODAY.getDate())){b.classList.add('dis');b.disabled=true;}
+      if(d===TODAY.getDate()&&cur.getMonth()===TODAY.getMonth()&&cur.getFullYear()===TODAY.getFullYear())b.classList.add('today');
+      b.addEventListener('click',function(){
+        g.querySelectorAll('.mcal-day:not(.off)').forEach(x=>x.classList.remove('sel'));
+        this.classList.add('sel');
+        B.date=MO[cur.getMonth()]+' '+d+', '+cur.getFullYear();
+        document.getElementById('tLabel').textContent='Times for '+d+' '+MO[cur.getMonth()];
+        upd('ss-date',B.date);
+        if(B.time)document.getElementById('n3').disabled=false;
+      });
+      g.appendChild(b);
+    }
+  }
+  const min=new Date(TODAY.getFullYear(),TODAY.getMonth(),1);
+  document.getElementById('cPrev').addEventListener('click',()=>{if(cur>min){cur.setMonth(cur.getMonth()-1);render();}});
+  document.getElementById('cNext').addEventListener('click',()=>{cur.setMonth(cur.getMonth()+1);render();});
+  render();
+})();
+</script>
+</body>
+</html>
