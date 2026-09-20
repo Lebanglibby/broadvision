@@ -648,3 +648,226 @@ input,textarea,select{font-family:inherit;font-size:inherit;color:inherit;}
   .contact-info,.contact-form{padding:var(--s6);}
 }
 @media print{.nav,.footer,.cta-strip,.nav__burger{display:none !important;}}
+
+/* ============================================================
+   RESPONSIVE — Full mobile/tablet overrides
+   Targeting all inline-style grids and absolute elements
+   ============================================================ */
+
+/* ── Nav logo shrinks on very small screens ── */
+@media(max-width:380px){
+  .nav__logo{height:44px;}
+  :root{--nav-h:64px;}
+}
+
+/* ── Hero two-column → single column ── */
+@media(max-width:860px){
+  .hero-grid{
+    grid-template-columns:1fr !important;
+    gap:var(--s10) !important;
+  }
+  .hero-visual{display:none !important;}        /* hide image column, keep copy */
+  .hero-copy{max-width:100% !important;}
+  .hero-trust{gap:var(--s4) !important;}
+}
+@media(max-width:480px){
+  .hero-section{min-height:auto !important;padding-bottom:var(--s12) !important;}
+  .hero-trust{gap:var(--s4) !important;}
+}
+
+/* ── Float cards (hero, about badge) ── */
+@media(max-width:860px){
+  .float-card{display:none !important;}
+  .about-badge{display:none !important;}
+}
+
+/* ── About grid-2 gap reduction ── */
+@media(max-width:860px){
+  .about-grid{gap:var(--s8) !important;}
+}
+
+/* ── Stat band — single column on phones ── */
+@media(max-width:480px){
+  .stats-row{flex-direction:column !important;}
+  .stat-item{
+    flex:none !important;
+    width:100% !important;
+    border-right:none !important;
+    border-bottom:1px solid rgba(255,255,255,.09) !important;
+  }
+  .stat-item:last-child{border-bottom:none !important;}
+}
+
+/* ── Shop filter bar stack ── */
+@media(max-width:640px){
+  .shop-filter-bar{
+    flex-direction:column !important;
+    align-items:stretch !important;
+    gap:var(--s3) !important;
+  }
+  .shop-search-wrap{max-width:100% !important;min-width:0 !important;}
+  .shop-count{display:none !important;}
+}
+
+/* ── Shop in-store strip ── */
+@media(max-width:860px){
+  .shop-instore{
+    grid-template-columns:1fr !important;
+    gap:var(--s8) !important;
+  }
+  .shop-instore-img{order:-1;}
+}
+
+/* ── Services svc-detail gap on tablet ── */
+@media(max-width:860px){
+  .svc-detail{
+    gap:var(--s8) !important;
+    padding-block:var(--s8) !important;
+  }
+}
+
+/* ── Booking layout ── */
+@media(max-width:860px){
+  .bk-layout{
+    grid-template-columns:1fr !important;
+    gap:var(--s6) !important;
+  }
+  .bk-summary{position:static !important;order:-1;}
+  .dt-grid{grid-template-columns:1fr !important;gap:var(--s5) !important;}
+}
+@media(max-width:480px){
+  .bk-panel{padding:var(--s5) !important;}
+  .bk-step-title{font-size:var(--t-lg) !important;}
+}
+
+/* ── Contact grid ── */
+@media(max-width:860px){
+  .contact-grid{
+    grid-template-columns:1fr !important;
+    gap:var(--s6) !important;
+  }
+}
+
+/* ── Contact find-us 3-col → 1-col ── */
+@media(max-width:640px){
+  .find-us-grid{
+    grid-template-columns:1fr !important;
+    gap:var(--s4) !important;
+  }
+}
+
+/* ── Map height on mobile ── */
+@media(max-width:640px){
+  .map-wrap iframe{height:260px !important;}
+}
+
+/* ── About why-us auto grid min-width shrink ── */
+@media(max-width:480px){
+  .why-us-grid{
+    grid-template-columns:1fr 1fr !important;
+    gap:var(--s4) !important;
+  }
+}
+
+/* ── CTA strip button stack ── */
+@media(max-width:480px){
+  .cta-strip__btns{flex-direction:column !important;align-items:center !important;}
+  .cta-strip__btns .btn{width:100%;max-width:320px;}
+}
+
+/* ── Page header p hidden on tiny screens ── */
+@media(max-width:380px){
+  .page-header p{display:none;}
+}
+
+/* ── Trust indicators wrap tighter ── */
+@media(max-width:480px){
+  .hero-trust > div{
+    flex:1 1 calc(50% - var(--s4));
+    min-width:0;
+  }
+}
+
+/* ── Footer bottom center on mobile ── */
+@media(max-width:480px){
+  .footer__legal{flex-direction:column;gap:var(--s3);align-items:center;}
+}
+
+/* ── Steps on mobile: compress labels ── */
+@media(max-width:420px){
+  .steps{gap:0;}
+  .step-lbl{display:none;}
+  .step-num{width:30px;height:30px;font-size:.65rem;}
+}
+
+/* ── General: prevent horizontal overflow from inline styles ── */
+@media(max-width:768px){
+  [style*="position:absolute"]{
+    /* float cards already hidden via .float-card class */
+  }
+  [style*="min-width:180px"]{min-width:0 !important;}
+  [style*="min-width:200px"]{min-width:0 !important;}
+}
+
+/* ── Booking option cards on tiny screens ── */
+@media(max-width:380px){
+  .opt-card{padding:var(--s3) !important;}
+  .opt-name{font-size:var(--t-xs) !important;}
+}
+
+/* ── about-grid gap reduction on mobile ── */
+@media(max-width:768px){
+  .about-grid{gap:var(--s8) !important;}
+  /* hide image column on about page when single-column */
+  .about-grid .reveal:first-child{display:none;}
+}
+
+/* ── grid-2 gap on tablet ── */
+@media(max-width:860px){
+  .grid-2{gap:var(--s8) !important;}
+}
+
+/* ── Prevent abs positioned elements from breaking layout ── */
+@media(max-width:860px){
+  .float-card   {display:none !important;}
+  .about-badge  {display:none !important;}
+}
+
+/* ── Product grid — 2 cols on tablet, 1 on mobile ── */
+@media(max-width:640px){
+  .grid-3#prodGrid{grid-template-columns:1fr !important;}
+}
+
+/* ── Svc-detail image order on mobile ── */
+@media(max-width:768px){
+  .svc-detail .svc-detail__img{order:-1;}
+}
+
+/* ── Page header reduced spacing mobile ── */
+@media(max-width:480px){
+  .page-header{padding-top:calc(var(--nav-h) + var(--s6));padding-bottom:var(--s5);}
+  .page-header h1{font-size:var(--t-2xl);}
+}
+
+/* ── CTA strip reduced padding on very small ── */
+@media(max-width:360px){
+  .cta-strip{padding:var(--s6) var(--s4) !important;}
+  .cta-strip h2{font-size:var(--t-xl);}
+}
+
+/* ── Section padding reduction on mobile ── */
+@media(max-width:480px){
+  .section   {padding-block:var(--s12);}
+  .section-sm{padding-block:var(--s8);}
+}
+
+/* ── Footer grid single column on mobile already covered — add gap fix ── */
+@media(max-width:768px){
+  .footer__grid{gap:var(--s6);}
+  .footer{padding-top:var(--s10);}
+}
+
+/* ── Wrap padding shrink on tiny screens ── */
+@media(max-width:360px){
+  :root{--pad:1rem;}
+}

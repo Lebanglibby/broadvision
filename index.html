@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="BroadVision Eye Clinic — Compassion and Excellence in eye care. Comprehensive eye exams, precision eyewear, contact lens fitting and more." />
   <title>BroadVision Eye Clinic | Compassion &amp; Excellence</title>
+  <link rel="icon" type="image/jpeg" href="branding/logo.jpeg" />
+  <link rel="apple-touch-icon" href="branding/logo.jpeg" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -45,7 +47,7 @@
 </div>
 
 <!-- ═══ HERO ═══ -->
-<section style="padding-top:var(--nav-h);min-height:100vh;display:flex;align-items:center;background:linear-gradient(150deg,var(--bg) 0%,var(--bg2) 60%,#dce6ff 100%);overflow:hidden;position:relative;" aria-label="Hero">
+<section class="hero-section" style="padding-top:var(--nav-h);min-height:100vh;display:flex;align-items:center;background:linear-gradient(150deg,var(--bg) 0%,var(--bg2) 60%,#dce6ff 100%);overflow:hidden;position:relative;" aria-label="Hero">
 
   <!-- Decorative background rings -->
   <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;overflow:hidden;">
@@ -55,10 +57,10 @@
   </div>
 
   <div class="wrap" style="padding-block:var(--s20);position:relative;z-index:1;">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s16);align-items:center;">
+    <div class="hero-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s16);align-items:center;">
 
       <!-- Copy -->
-      <div>
+      <div class="hero-copy">
         <div class="a-up" style="display:inline-flex;align-items:center;gap:var(--s2);background:var(--orange-xlt);border:1px solid rgba(247,127,0,.25);border-radius:var(--r-full);padding:.3rem var(--s4);font-size:var(--t-xs);font-weight:700;color:var(--orange-dk);letter-spacing:.1em;text-transform:uppercase;margin-bottom:var(--s6);">
           <span style="width:7px;height:7px;border-radius:50%;background:var(--orange);animation:pulse 2s infinite;flex-shrink:0;"></span>
           Eye Care with Passion
@@ -80,7 +82,7 @@
         </div>
 
         <!-- Trust indicators -->
-        <div class="a-up d-4" style="display:flex;flex-wrap:wrap;gap:var(--s6);padding-top:var(--s6);border-top:1px solid var(--border);">
+        <div class="hero-trust a-up d-4" style="display:flex;flex-wrap:wrap;gap:var(--s6);padding-top:var(--s6);border-top:1px solid var(--border);">
           <div>
             <div style="font-size:var(--t-xl);font-weight:800;color:var(--navy);font-family:var(--serif);">15+</div>
             <div style="font-size:var(--t-xs);color:var(--text3);font-weight:500;margin-top:1px;">Yrs Experience</div>
@@ -101,7 +103,7 @@
       </div>
 
       <!-- Visual -->
-      <div class="a-in d-2" style="position:relative;">
+      <div class="hero-visual a-in d-2" style="position:relative;">
         <!-- Main image -->
         <div style="border-radius:var(--r-2xl);overflow:hidden;box-shadow:var(--sh-xl);">
           <img
@@ -113,7 +115,7 @@
         </div>
 
         <!-- Float: open status -->
-        <div style="position:absolute;top:var(--s6);right:calc(-1*var(--s4));background:var(--navy);border-radius:var(--r-lg);padding:var(--s3) var(--s4);box-shadow:var(--sh-lg);animation:float 4s ease infinite;">
+        <div class="float-card" style="position:absolute;top:var(--s6);right:calc(-1*var(--s4));background:var(--navy);border-radius:var(--r-lg);padding:var(--s3) var(--s4);box-shadow:var(--sh-lg);animation:float 4s ease infinite;">
           <div style="display:flex;align-items:center;gap:var(--s2);">
             <span style="width:8px;height:8px;border-radius:50%;background:var(--success);animation:pulse 2s infinite;flex-shrink:0;"></span>
             <span style="font-size:var(--t-xs);font-weight:700;color:var(--white);">Open Today</span>
@@ -122,7 +124,7 @@
         </div>
 
         <!-- Float: rating -->
-        <div style="position:absolute;bottom:var(--s8);left:calc(-1*var(--s6));background:var(--white);border-radius:var(--r-lg);padding:var(--s4) var(--s5);box-shadow:var(--sh-xl);display:flex;align-items:center;gap:var(--s3);min-width:180px;">
+        <div class="float-card" style="position:absolute;bottom:var(--s8);left:calc(-1*var(--s6));background:var(--white);border-radius:var(--r-lg);padding:var(--s4) var(--s5);box-shadow:var(--sh-xl);display:flex;align-items:center;gap:var(--s3);min-width:180px;">
           <div style="width:40px;height:40px;border-radius:var(--r-sm);background:var(--orange-xlt);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;">⭐</div>
           <div>
             <div style="font-weight:800;font-size:var(--t-md);color:var(--text);line-height:1;">4.9 / 5.0</div>
