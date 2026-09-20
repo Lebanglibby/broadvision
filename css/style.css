@@ -562,9 +562,13 @@ input,textarea,select{font-family:inherit;font-size:inherit;color:inherit;}
 .footer__social{
   width:36px;height:36px;border-radius:var(--r-sm);
   background:rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;
-  font-size:.9rem;transition:all var(--fast);
+  font-size:.9rem;transition:all var(--base);color:var(--white);
 }
-.footer__social:hover{background:var(--cyan);transform:translateY(-2px);}
+/* Brand background colors — always visible on dark footer */
+.footer__social[aria-label="Facebook"]  { background:#1877F2; }
+.footer__social[aria-label="Instagram"] { background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+.footer__social[aria-label="WhatsApp"]  { background:#25D366; }
+.footer__social:hover{transform:translateY(-3px);filter:brightness(1.15);box-shadow:0 4px 16px rgba(0,0,0,.35);}
 .footer__col-title{font-size:var(--t-xs);font-weight:700;color:var(--white);letter-spacing:.11em;text-transform:uppercase;margin-bottom:var(--s4);}
 .footer__link{display:block;font-size:var(--t-sm);color:rgba(255,255,255,.4);margin-bottom:var(--s3);transition:color var(--fast),padding-left var(--fast);}
 .footer__link:hover{color:var(--cyan-lt);padding-left:4px;}
